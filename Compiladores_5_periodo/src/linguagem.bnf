@@ -1,0 +1,58 @@
+/*
+<A> ::= <B><B>
+<B> ::= 'a' | 'b' | <A> |
+*/
+<ListDef> ::= <Def><ListDef> |
+<Def> ::= 'doModo'<Mod> 'doTipo'<Tipo>'tarefa' ID '('<ListParam>')''*' <ListComan> '*' | 'doTipo'<Tipo>'tarefa' ID '('<ListParam>')''*' <ListComan> '*'
+<ListParam> ::= <Param><ListParam2> | 
+<ListParam2> ::= ','<Param><ListParam2> | 
+<Param> ::='doTipo'<Tipo> ID
+<Tipo> ::= 'inteiro'
+        | 'real'
+        | 'texto'
+        | 'nada'
+<ListComan> ::= <Coman><ListComan> | 
+<Coman> ::= <Decl>
+        | <Atrib>
+        | <Se>
+        | <Laco>
+        | <Ret>
+        | <Entrada>
+        | <Saida>
+        | <Chamada>fimDaLinha
+        | '{'<ListComan>'}'
+<Decl> ::= <ListId>':'<Tipo>'fimDaLinha'
+<ListId> ::= ID <ListId2>
+<ListId2> ::= ',' ID <ListId2> | 
+<Atrib> ::= ID 'memoQV' <ExprArit>'fimDaLinha'
+<ExprArit> ::= <Termo><ExprArit2>
+<ExprArit2> ::= <Op1><ExprArit> | 
+<Termo> ::= <Fator><Termo2>
+<Termo2> ::= <Op2><Termo> |
+<Fator> ::= <Operando>
+        | <Chamada>
+        | '('ExprArit ')'
+<Operando> ::= ID
+        | CLI
+        | CLR
+        | CLT
+<Op1> ::= 'mais'
+        | 'menos'
+<Op2> ::= 'vezes'
+        | 'rachar'
+<Se> ::= 'caso''('<ExpRel>')'<Coman><Senao>
+<Senao> ::= 'senao' <Coman> | 
+<ExpRel> ::= <ExprArit><Op3><ExprArit>
+<Op3> ::= '>'
+        | '>='
+        | '<'
+        | '<='
+        | '=='
+        | '!='
+<Laco> ::= 'sempreQ''('<ExpRel>')'<Coman>
+<Ret> ::= 'retruca' <Fator> 'fimDaLinha' | 'retruca''('<Fator>')''fimDaLinha'
+<Entrada> ::= 'escuta''('ID')''fimDaLinha'
+<Saida> ::= 'exibir''('<Operando>')''fimDaLinha'
+<Chamada> ::= ID '('<ListArg>')''fimDaLinha'
+<ListArg> ::= <Operando><ListArg2> | 
+<ListArg2> ::= ',' <Operando><ListArg2> | 

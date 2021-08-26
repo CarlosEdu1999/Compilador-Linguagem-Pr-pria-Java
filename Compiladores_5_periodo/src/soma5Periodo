@@ -1,0 +1,22 @@
+
+tarefa soma(doTipo inteiro numero1,doTipo inteiro numero2)doTipo inteiro {
+    variavel2 doTipo inteiro;
+    variavel2 = "a";
+    numero1 = 2;
+    var3 doTipo inteiro;
+    var3 =  numero1 + variavel2;
+    caso(numero1 >= numero2){
+        retruca numero1;
+    }
+    senao caso(numero1 >= 0){
+        retruca numero1;
+    }
+    senao{
+        retruca numero2;
+    }
+    escuta("exemplo de texto");
+
+    sempreQ(numero1 > numero2) {
+        exibir("exemplo de uma cadeia de textos");
+    }
+}
